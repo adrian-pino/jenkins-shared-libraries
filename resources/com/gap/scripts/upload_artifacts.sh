@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Create a confif.file (This should be created by a run of an ansible-playbook before)
+# Create a config file (Up to know is manually created, but eventually it would be the output of an ansible-playbook)
 echo $(date) >> ~/config.cfg
 
 # Create a tmp folder where we will run the git tasks.
@@ -14,7 +14,7 @@ cd jenkins-common-files
 # Add new artifacts into the repository
 cp ~/config.cfg ./config/
 
-# Push the config file in to the repository
+# Push the config file into the repository
 git add .
 git status
 git commit -m "Updating the config.cfg file"
