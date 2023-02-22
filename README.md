@@ -1,16 +1,38 @@
 # Jenkins shared libraries
-The main aim is to test Jenkins shared libraries with basic examples.
+The objective of this repository is to implement the scripts needed to store/load Jenkins lightweight artifacts in another Git repository.
 
-## Repo structure
+## Structure
+
+Directory structure: 
 ```
 .
+├── README.md
 ├── resources
-│   └── com
-│       └── gap
-│           └── scripts
-│               └── hello-world.sh
+│   └── scripts
+│       ├── load_artifacts.sh
+│       └── upload_artifacts.sh
 └── vars
-    ├── helloWorldExternal.groovy
-    ├── helloWorld.groovy
+    ├── loadArtifacts.groovy
     └── loadLinuxScript.groovy
 ```
+
+
+## Usage
+1. Create a Jenkins Global Pipeline Library. A shared library that maps this repository will be created.
+1. Add the shared library to the Jenkins pipeline. At this point any script located under /scripts could be used in the pipeline.
+```
+@Library("gap-shared-library") _
+pipeline {
+    agent any
+
+    stages {
+        stage('Load artifact') {
+            steps {
+                load_artifacts(GitRepo:"$GIT_REPO", File:"$FILE")
+            }
+        }
+    }
+}
+```
+
+
