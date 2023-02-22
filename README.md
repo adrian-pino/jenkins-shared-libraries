@@ -18,7 +18,7 @@ Directory structure:
 
 
 ## Usage
-1. Create a Jenkins Global Pipeline Library. A shared library that maps this repository will be created.
+1. Create a Jenkins Global Pipeline Library. A shared library that maps this repository will be created. A mapping between the Global Pipeline Library (also called shared library) and the git repository location will be implemented.
 1. Add the shared library to the Jenkins pipeline. At this point any script located under /scripts could be used in the pipeline.
 ```
 @Library("gap-shared-library") _
