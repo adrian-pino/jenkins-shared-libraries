@@ -15,7 +15,7 @@ cp ./config/$2 $CURRENT_PATH
 cd $CURRENT_PATH
 
 # Validate that the config file got loaded
-echo $2
+cat $2
 
 # Clean everything
 rm -rf ~/tmp-folder
