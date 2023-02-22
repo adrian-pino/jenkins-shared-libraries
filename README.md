@@ -28,7 +28,7 @@ pipeline {
     stages {
         stage('Load artifact') {
             steps {
-                load_artifacts(GitRepo:"$GIT_REPO", File:"$FILE")
+                loadArtifacts(GitRepository:"$GIT_REPO", File:"$FILE")
             }
         }
     }
