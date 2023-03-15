@@ -11,7 +11,7 @@ git clone $1
 cd jenkins-common-files
 
 # Load the artifacts from the Git repo folder
-cp ./config/ $CURRENT_PATH 
+cp -r ./config/ $CURRENT_PATH 
 cd $CURRENT_PATH
 
 ##################################
