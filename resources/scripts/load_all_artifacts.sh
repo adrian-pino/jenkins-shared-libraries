@@ -11,9 +11,7 @@ git clone $1
 cd jenkins-common-files
 
 # Create "artifacts" folder if not present
-if [!-d $CURRENT_PATH/artifacts]; then
-    mkdir -p $CURRENT_PATH/artifacts;
-fi;
+mkdir -p $CURRENT_PATH/artifacts
 
 # Load the artifacts from the Git repo folder
 cp -r ./config/ $CURRENT_PATH/artifacts
