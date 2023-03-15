@@ -21,8 +21,6 @@ echo ""
 echo "Artifacts downloaded successfully and ready to be used"
 ls
 echo ""
-cat *
-echo "---------------------------------"
 ##################################
 
 # Clean the tmp folder previously created
