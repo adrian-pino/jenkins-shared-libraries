@@ -1,0 +1,29 @@
+@Library("example-shared-library") _
+pipeline {
+    agent any
+
+    stages {
+        stage('Generate an artifact') {
+            steps {
+                sh '''#!/bin/bash
+                    mkdir -p ~/artifacts
+                    echo $(date) >> ~/artifacts/date.txt 
+                '''
+            }
+        }
+        stage('Store artifacts') {
+            steps {
+                storeArtifacts(GitRepository:"git@github.com:adrian-pino/ansible-artifacts.git", ArtifactsLocationPath:"~/artifacts")
+            }
+        }
+        stage('Download artifacts') {
+            steps {
+                downloadArtifacts(GitRepository:"git@github.com:adrian-pino/ansible-artifacts.git", DestinationPath: "~/downloaded-artifacts")
+                sh '''#!/bin/bash
+                    ls ~/downloaded-artifacts
+                '''
+                 
+            }
+        }
+    }
+}
