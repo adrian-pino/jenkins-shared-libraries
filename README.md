@@ -53,6 +53,7 @@ pipeline {
     }
 }
 ```
-
+## Pre-requisites
+The jenkins worker need to have fixed the authorization in order to manage the Git repository storing the artifacts. This can be done either adding the jenkins-worker's public-ssh key to the Git repoisotory, or either using always the same key-pair, so that the private-ssh key is added to the workerat instantiation time, having already the public key added in Git. 
 
 
