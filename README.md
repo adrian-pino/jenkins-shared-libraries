@@ -22,8 +22,8 @@ Directory structure:
 1. Add the shared library to the Jenkins pipeline. At this point any script located under /scripts could be used in the pipeline.
 
 
-# Functionality supported
-1. Download Artifacts
+## Functionality supported
+Download Artifacts
 ```
 @Library("geant-goat-shared-library") _
 pipeline {
@@ -38,7 +38,7 @@ pipeline {
     }
 }
 ```
-1. Store Artifacts
+Store Artifacts
 ```
 @Library("geant-goat-shared-library") _
 pipeline {
