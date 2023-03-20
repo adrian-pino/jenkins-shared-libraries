@@ -9,6 +9,8 @@ Directory structure:
 ```
 .
 ├── README.md
+├── pipeline
+│   └── functionality-testing-pipeline.yaml
 ├── resources
 │   └── scripts
 │       ├── download_artifacts.sh
@@ -26,7 +28,7 @@ The jenkins worker need to have fixed the authorization in order to manage the G
 ## Usage
 1. Create a Jenkins Global Pipeline Library. A shared library that maps this repository will be created. A mapping between the Global Pipeline Library (also called shared library) and the git repository location will be implemented.
 1. Add the shared library to the Jenkins pipeline. At this point any script located under /scripts could be used in the pipeline.
-
+1. An example of a pipeline storing/downloading artifacts ir provided under /pipeline
 
 ## Functionality supported
 ### Download Artifacts
