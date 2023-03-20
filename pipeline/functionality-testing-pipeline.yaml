@@ -1,29 +1,40 @@
-@Library("example-shared-library") _
+@Library("goat-jenkins-shared-libraries") _
 pipeline {
     agent any
-
     stages {
+        stage('Add ssh-key to the worker'){
+            steps{
+                sh '''#!/bin/bash
+                    echo "Run an ansible-playbook implementing this task"
+                '''
+            }
+        }
         stage('Generate an artifact') {
             steps {
                 sh '''#!/bin/bash
+                    echo "Let's create an artifact that later on will be stored in the Git repo"
                     mkdir -p ~/artifacts
-                    echo $(date) >> ~/artifacts/date.txt 
+                    echo $(date) >> ~/artifacts/date.txt
                 '''
             }
         }
         stage('Store artifacts') {
             steps {
+                echo "Reminder: as a requirement, the ssh-key must be added to the SCM, and git user name & mail should be configured."
                 storeArtifacts(GitRepository:"git@github.com:adrian-pino/ansible-artifacts.git", ArtifactsLocationPath:"~/artifacts")
+                echo "Artifact located in '~/artifacts' stored successfully"
             }
         }
         stage('Download artifacts') {
             steps {
                 downloadArtifacts(GitRepository:"git@github.com:adrian-pino/ansible-artifacts.git", DestinationPath: "~/downloaded-artifacts")
                 sh '''#!/bin/bash
+                    echo "Let's check that the artifacts have been downloaded".
+                    echo "ls ~/downloaded-artifacts"
                     ls ~/downloaded-artifacts
                 '''
-                 
             }
         }
     }
 }
+
