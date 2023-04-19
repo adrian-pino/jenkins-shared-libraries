@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Store artifacts') {
             steps {
-                echo "Reminder: as a requirement, the ssh-key must be added to the SCM, and git user name & mail should be configured."
+                echo "Reminder: as a requirement, the public ssh-key must be added to the SCM"
                 storeArtifacts(GitRepository:"git@github.com:adrian-pino/ansible-artifacts.git", ArtifactsLocationPath:"~/artifacts")
                 echo "Artifact located in '~/artifacts' stored successfully"
             }
